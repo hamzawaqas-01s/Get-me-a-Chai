@@ -1,4 +1,5 @@
 "use client";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useState } from "react";
 
 const SOCIAL_PROVIDERS = [
@@ -77,7 +78,7 @@ export default function LoginPage({ onSocialLogin, onEmailLogin }) {
 
   return (
     <div className="min-h-screen w-full bg-[#F4EDE0] flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-[420px]">
+      <div className="w-full max-w-105">
         {/* Brand mark */}
         <div className="flex items-center justify-center gap-2 mb-8">
           <span className="text-lg font-semibold text-[#2B2118] tracking-tight">
@@ -89,9 +90,9 @@ export default function LoginPage({ onSocialLogin, onEmailLogin }) {
         <div className="bg-[#FBF8F1] border border-[#DDD2BE] rounded-2xl px-8 py-9 shadow-[0_1px_2px_rgba(43,33,24,0.04)]">
           {/* Eyebrow, echoing the "| | Live right now" mark from the site */}
           <div className="flex items-center gap-2 mb-5">
-            <span className="flex gap-[3px]">
-              <span className="w-[3px] h-4 bg-[#8A9A7E] rounded-full" />
-              <span className="w-[3px] h-4 bg-[#8A9A7E] rounded-full" />
+            <span className="flex gap-0.75">
+              <span className="w-0.75 h-4 bg-[#8A9A7E] rounded-full" />
+              <span className="w-0.75 h-4 bg-[#8A9A7E] rounded-full" />
             </span>
             <span className="text-sm text-[#6B6055]">Welcome back</span>
           </div>

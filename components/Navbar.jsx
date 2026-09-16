@@ -1,7 +1,15 @@
-"use client"
+"use client";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
+   const { data: session } = useSession()
+   if(session) {
+    return <>
+      Signed in as {session.user.email} <br/>
+      <button onClick={() => signOut()}>Sign out</button>
+    </>
+  }
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 

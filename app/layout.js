@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import SessionWrapper from "@/components/SessionWrapper";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -14,11 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar/>
-        <div className="min-h-screen">
-          {children}
-        </div>
-        <Footer/>
+        <SessionWrapper>
+          <Navbar />
+          <div className="min-h-screen">
+            {children}
+          </div>
+          <Footer />
+        </SessionWrapper>
       </body>
     </html>
   );
