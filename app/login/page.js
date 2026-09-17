@@ -1,6 +1,7 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const SOCIAL_PROVIDERS = [
   {
@@ -60,6 +61,13 @@ const SOCIAL_PROVIDERS = [
 ];
 
 export default function LoginPage({ onSocialLogin, onEmailLogin }) {
+  const { data:session } = useSession();
+
+  if(session){
+    const router = useRouter()
+    router.push("/dashboard")
+  }
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
