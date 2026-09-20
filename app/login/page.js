@@ -61,17 +61,17 @@ const SOCIAL_PROVIDERS = [
 ];
 
 export default function LoginPage({ onSocialLogin, onEmailLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  
   const { data:session } = useSession();
 
   if(session){
     const router = useRouter()
     router.push("/dashboard")
   }
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -89,7 +89,7 @@ export default function LoginPage({ onSocialLogin, onEmailLogin }) {
       <div className="w-full max-w-105">
         {/* Brand mark */}
         <div className="flex items-center justify-center gap-2 mb-8">
-          <span className="text-lg font-semibold text-[#2B2118] tracking-tight">
+          <span className="text-2xg font-bold text-[#2B2118] tracking-tight">
             Get me a Chai
           </span>
         </div>
@@ -119,7 +119,7 @@ export default function LoginPage({ onSocialLogin, onEmailLogin }) {
                 key={provider.id}
                 
                 type="button"
-                onClick={() => signIn("github")}
+                onClick={() => signIn(provider.id)}
                 className="w-full flex items-center gap-3 border border-[#DDD2BE] bg-white rounded-lg px-4 py-2.5 text-[14.5px] font-medium text-[#2B2118] hover:bg-[#F4EDE0] hover:border-[#C9BBA0] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B5652B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FBF8F1]"
               >
                 {provider.icon}

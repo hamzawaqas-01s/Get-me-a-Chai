@@ -13,9 +13,9 @@
 // stand-in for demo purposes only. Replace with licensed photography
 // before shipping to production.
 "use client";
+import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import { useScrollReveal } from "./useScrollReveal";
-import { useEffect, useState } from "react";
 
 const CREATORS = [
   { name: "Ritu Nair", handle: "@ritubrews", niche: "Home baking", supporters: 214, cupsToday: 6 },
