@@ -80,7 +80,7 @@ const Username = ({ params }) => {
                             <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} className='w-full p-3 rounded-lg bg-[#FBF8F1] border border-[#DDD2BE]' placeholder='Enter Amount' />
 
 
-                            <button onClick={handleDonate} className="text-white bg-linear-to-br from-purple-900 to-blue-900 hover:bg-linear-to-bl focus:ring-2 focus:outline-none focus:ring-black dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 disabled:bg-slate-600 disabled:from-purple-100" disabled={paymentform.name?.length < 3 || paymentform.message?.length < 4 || paymentform.amount?.length < 1 || loading}>{loading ? "Redirecting..." : `Donate $${amount}`}</button>
+                            <button onClick={handleDonate} className="text-white bg-linear-to-br from-purple-900 to-blue-900 hover:bg-linear-to-bl focus:ring-2 focus:outline-none focus:ring-black dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 disabled:bg-slate-600 disabled:from-purple-100" disabled={ loading }>{loading ? "Redirecting..." : `Donate $${amount}`}</button>
 
                         </div>
                         {/* Or choose from these amounts  */}
